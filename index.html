@@ -1,14 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responsive Space Travel</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <style>
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -16,25 +17,54 @@
         }
     </style>
 </head>
-<body>
 
-  
-</nav>
+<body class="bg-slate-950 text-white">
     <main>
-        <div
-            class="hero min-h-screen"
-            style="background-image: url('/images/background-destination-desktop.jpg');">
-            <div class="hero-content text-neutral-content">
-                <div class="max-w-auto">
+        <div class="hero min-h-screen bg-cover bg-center">
+            
+            <!-- Responsive Navbar -->
+            <nav class="absolute top-0 left-0 w-full h-20">
+                <div class="navbar text-white h-full flex justify-between items-center">
+                    <div class="flex-1">
+                        <a class="text-xl font-bold"><img src="images/favicon-32x32.png" alt=""></a>
+                    </div>
+                   
+                    <div class="hidden md:flex">
+                        <ul class="menu menu-horizontal px-2 bg-white bg-opacity-10 flex items-center gap-x-7">
+                            <li><a> 00 Home</a></li>
+                            <li><a> 01 Destination</a></li>
+                            <li><a> 02 Crew</a></li>
+                            <li><a> 03 Technology</a></li>
+                        </ul>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="menu-btn" class="text-white text-2xl">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-black bg-opacity-90 text-white">
+                    <ul class="flex flex-col items-center py-4 space-y-4">
+                        <li><a href="#">00 Home</a></li>
+                        <li><a href="#">01 Destination</a></li>
+                        <li><a href="#">02 Crew</a></li>
+                        <li><a href="#">03 Technology</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Hero Content -->
+            <div class="hero-content text-neutral-content px-6">
+                <div class="max-w-auto text-center md:text-left">
                     <div class="hero mx-auto">
-                        <div class="hero-content flex-col lg:flex-row-reverse gap-x-28">
-                            <img
-                                src="images/image-moon.png"
-                                class="max-w-full sm:max-w-sm rounded-lg" />
-                            <div>
-                                <h4 class="text-xl font-serif font-light text-center sm:text-left">SO, YOU WANT TO TRAVEL TO</h4>
-                                <h1 class="text-4xl sm:text-9xl font-serif font-light text-center sm:text-left">SPACE</h1>
-                                <p class="py-6 text-lg sm:text-xl font-thin text-center sm:text-left">
+                        <div class="hero-content flex-col lg:flex-row-reverse gap-x-10">
+                            <img src="images/image-moon.png" class="max-w-full sm:max-w-sm rounded-lg mx-auto" />
+                            <div class="p-10">
+                                <h4 class="text-xl  font-thin text-center sm:text-left">SO, YOU WANT TO TRAVEL TO</h4>
+                                <h1 class="text-5xl sm:text-9xl font-bold font-light text-center sm:text-left">SPACE</h1>
+                                <p class="py-8 text-lg sm:text-xl font-thin text-center sm:text-left">
                                     Let’s face it; if you want to go to space, you might as well genuinely<br> go to outer space and not hover kind of on the edge of it.<br> Well sit back, and relax because we’ll give you a truly out of this world experience!
                                 </p>
                             </div>
@@ -42,7 +72,14 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </main>
+
+    <script>
+        document.getElementById("menu-btn").addEventListener("click", function () {
+            document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
 </body>
 </html>
